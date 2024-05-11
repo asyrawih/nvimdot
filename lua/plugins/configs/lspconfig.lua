@@ -18,7 +18,7 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    vim.lsp.inlay_hint.enable(true, nil)
   end
 end
 
@@ -48,6 +48,7 @@ require("lspconfig").lua_ls.setup {
 
   settings = {
     Lua = {
+      hint = { enable = true },
       diagnostics = {
         globals = { "vim" },
       },
@@ -64,5 +65,6 @@ require("lspconfig").lua_ls.setup {
     },
   },
 }
+
 
 return M
